@@ -34,7 +34,7 @@
                         Creating an account means you are okay with our Terms of Service and Privacy policy
                     </div> -->
                     <div class=" text-center">
-                        <a href="signup.html" class="font-weight-bolder custom-link-black">Don't you have an account? Register</a>
+                        <a href="/register" class="font-weight-bolder custom-link-black">Don't you have an account? Register</a>
                     </div>
                 </form>
             </div>
