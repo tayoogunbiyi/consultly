@@ -1,1 +1,1 @@
-web: php spark serve --port 80
+web: vendor/bin/heroku-php-apache2
