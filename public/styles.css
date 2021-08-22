@@ -1,0 +1,118 @@
+.custom-h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.custom-h3 {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.custom-h6 {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.custom-label {
+  font-size: 17px;
+  font-weight: 600;
+  margin-left: 0;
+}
+
+.centralised-section {
+  width: 400px;
+  margin: 10px auto;
+}
+
+.custom-textbox-input,
+.custom-textarea-input,
+.custom-select-input {
+  background-color: #ededed;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.grey-color {
+  color: #9b9b9b;
+}
+
+.custom-primary-btn {
+  background-color: #000000;
+  color: #dfdfdf;
+  width: 100%;
+}
+
+.custom-primary-btn:hover {
+  color: white;
+}
+
+.off-white-color {
+  color: #dfdfdf;
+}
+
+.custom-link-grey {
+  text-decoration: none;
+  color: #9b9b9b;
+}
+
+.custom-link-grey:hover {
+  color: #9b9b9b;
+}
+
+.custom-link-black {
+  text-decoration: none;
+  color: black;
+}
+
+.custom-link-black:hover {
+  color: black;
+}
+
+.custom-black-color {
+  color: black;
+}
+
+.custom-form-input-info {
+  color: #969696;
+}
+
+/*consultation page*/
+.hr-form {
+  height: 1px;
+  background-color: #ccc;
+}
+
+.consultation-form-section-inactive {
+  width: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #e8e8e8;
+  border-radius: 11px;
+  text-align: center;
+  border: 2px solid black;
+  display: inline-block;
+  margin: 2px;
+}
+
+.consultation-form-section-active {
+  width: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #130f26;
+  color: white;
+  border-radius: 11px;
+  text-align: center;
+  border: 2px solid black;
+  display: inline-block;
+  margin: 2px;
+}
+
+.consultation-form-section-inactive:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) and (min-width: 0px) {
+  .centralised-section {
+    width: 80%;
+  }
+}
