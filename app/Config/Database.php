@@ -92,8 +92,6 @@ class Database extends Config
 		} else {
 			$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-			d(getenv("CLEARDB_DATABASE_URL"));
-			d($url);
 
 			$server = $url["host"];
 			$username = $url["user"];
