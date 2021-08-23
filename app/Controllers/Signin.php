@@ -2,12 +2,60 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
+
+
 class Signin extends BaseController
 {
     public function index()
     {
+        helper(['form']);
         $from_registration = $this->session->getFlashdata('from_registration');
         $data['from_registration'] = $from_registration;
         return view('sign_in', $data);
+    }
+
+    public function loginAuth()
+    {
+        helper(['form']);
+
+        $rules = [
+            'email' => 'required|min_length[4]|max_length[100]|valid_email',
+        ];
+
+        if (!$this->validate(($rules))) {
+            $data['validation'] = $this->validator;
+            echo view('sign_in', $data);
+            return;
+        }
+
+        $session = $this->session;
+
+        $userModel = new User();
+
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
+
+        $data = $userModel->where('email', $email)->first();
+
+        if ($data) {
+            $hashed_password = $data['hashed_password'];
+            if (password_verify($password, $hashed_password)) {
+                $session_data = [
+                    'id' => $data['id'],
+                    'email' => $data['email'],
+                    'isLoggedIn' => TRUE
+                ];
+
+                $session->set($session_data);
+                return redirect()->to('/profile');
+            } else {
+                $session->setFlashdata('msg', 'Password is incorrect.');
+                return redirect()->to('/signin');
+            }
+        } else {
+            $session->setFlashdata('msg', 'Incorrect credentials');
+            return redirect()->to('/signin');
+        }
     }
 }

@@ -20,17 +20,27 @@
                 </div>
             <?php endif; ?>
             <div class="text-center custom-h1 mb-4">Sign In</div>
-            <form>
+            <?php if (isset($validation)) : ?>
+                <div class="alert alert-warning">
+                    <?= $validation->listErrors() ?>
+                </div>
+            <?php endif; ?>
+            <?php if (session()->getFlashdata('msg')) : ?>
+                <div class="alert alert-warning">
+                    <?= session()->getFlashdata('msg') ?>
+                </div>
+            <?php endif; ?>
+            <form action="<?php echo base_url(); ?>/Signin/loginAuth" method="post">
                 <div class="form-group my-3">
                     <label class="custom-label">Email</label>
-                    <input type="email" class="custom-textbox-input form-control" placeholder="Please enter your email address">
+                    <input name="email" type="email" class="custom-textbox-input form-control" placeholder="Please enter your email address">
                 </div>
                 <div class="form-group my-3">
                     <label class="custom-label">Password</label>
                     <span class="float-right mt-2 grey-color">
                         <a href="forgotpassword.html" class="custom-link-grey">Forgot password?</a>
                     </span>
-                    <input type="password" class="custom-textbox-input form-control" placeholder="Please enter your password">
+                    <input name="password" type="password" class="custom-textbox-input form-control" placeholder="Please enter your password">
                 </div>
                 <div class="my-4">
                     <input type="submit" value="Sign In" class="custom-primary-btn btn">
