@@ -4,6 +4,8 @@ namespace Config;
 
 use CodeIgniter\Database\Config;
 
+
+
 /**
  * Database Configuration
  */
@@ -34,7 +36,7 @@ class Database extends Config
 		'DSN'      => '',
 		'hostname' => 'localhost',
 		'username' => 'root',
-		'password' => 'pFSbH}#M=;#r9:MS',
+		'password' => 'P@ssword12',
 		'database' => 'cpe502-db',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
@@ -85,9 +87,38 @@ class Database extends Config
 		// Ensure that we always set the database group to 'tests' if
 		// we are currently running an automated test suite, so that
 		// we don't overwrite live data on accident.
-		if (ENVIRONMENT === 'testing')
-		{
+		if (ENVIRONMENT === 'testing') {
 			$this->defaultGroup = 'tests';
+		} else {
+			$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+			d(getenv("CLEARDB_DATABASE_URL"));
+			d($url);
+
+			$server = $url["host"];
+			$username = $url["user"];
+			$password = $url["pass"];
+			$db = substr($url["path"], 1);
+			$port = $url["port"];
+
+			$this->default = [
+				'hostname' => $server,
+				'username' => $username,
+				'password' => $password,
+				'database' => $db,
+				'DBDriver' => 'MySQLi',
+				'DBPrefix' => '',
+				'pConnect' => true,
+				'DBDebug'  => (ENVIRONMENT !== 'production'),
+				'charset'  => 'utf8',
+				'DBCollat' => 'utf8_general_ci',
+				'swapPre'  => '',
+				'encrypt'  => false,
+				'compress' => false,
+				'strictOn' => false,
+				'failover' => [],
+				'port'     => $port,
+			];
 		}
 	}
 
