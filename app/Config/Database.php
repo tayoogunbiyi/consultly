@@ -97,7 +97,7 @@ class Database extends Config
 			$username = $url["user"];
 			$password = $url["pass"];
 			$db = substr($url["path"], 1);
-			$port = $url["port"];
+			$port = isset($url['port']) ? $url['port'] : '';
 
 			$this->default = [
 				'hostname' => $server,
