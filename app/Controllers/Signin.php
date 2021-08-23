@@ -2,12 +2,12 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
-
-class Signin extends Controller
+class Signin extends BaseController
 {
     public function index()
     {
-        return view('sign_in');
+        $from_registration = $this->session->getFlashdata('from_registration');
+        $data['from_registration'] = $from_registration;
+        return view('sign_in', $data);
     }
 }

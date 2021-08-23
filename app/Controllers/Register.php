@@ -26,18 +26,16 @@ class Register extends BaseController
 
         if ($this->validate($rules)) {
             $user = new User();
-            d($user);
-            d($this->request->getVar("company-password"));
 
             $data = [
                 'email'    => $this->request->getVar('company-email'),
                 'hashed_password' => password_hash($this->request->getVar('company-password'), PASSWORD_BCRYPT),
             ];
 
-            d($data);
 
             $user->insert($data);
 
+            $this->session->setFlashdata("from_registration", true);
             return redirect()->to('/signin');
         } else {
             $data['validation'] = $this->validator;
