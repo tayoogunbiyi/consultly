@@ -9,6 +9,8 @@ class Signin extends BaseController
 {
     public function index()
     {
+        $this->session->set(['isLoggedIn' => false]);
+
         helper(['form']);
         $from_registration = $this->session->getFlashdata('from_registration');
         $data['from_registration'] = $from_registration;
