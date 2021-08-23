@@ -9,7 +9,6 @@ class Register extends BaseController
     public function index()
     {
         helper(['form']);
-        $data = [];
         return view('register');
     }
 
