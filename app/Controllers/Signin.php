@@ -18,7 +18,7 @@ class Signin extends BaseController
         return view('sign_in', $data);
     }
 
-    public function loginAuth()
+    public function login()
     {
         helper(['form']);
 

@@ -30,7 +30,7 @@
                     <?= session()->getFlashdata('msg') ?>
                 </div>
             <?php endif; ?>
-            <form action="<?php echo base_url(); ?>/Signin/loginAuth" method="post">
+            <form action="<?php echo base_url(); ?>/signin" method="post">
                 <div class="form-group my-3">
                     <label class="custom-label">Email</label>
                     <input name="email" type="email" class="custom-textbox-input form-control" placeholder="Please enter your email address">

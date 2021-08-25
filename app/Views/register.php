@@ -20,7 +20,7 @@
                     <?= $validation->listErrors() ?>
                 </div>
             <?php endif; ?>
-            <form action="<?php echo base_url(); ?>/register/save" method="post">
+            <form action="<?php echo base_url(); ?>/signup" method="post">
                 <form>
                     <div class="form-group my-3">
                         <label class="custom-label">Company name</label>
