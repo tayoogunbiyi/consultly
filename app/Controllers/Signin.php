@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Company;
 use App\Models\User;
 
 
@@ -34,6 +35,7 @@ class Signin extends BaseController
         $session = $this->session;
 
         $userModel = new User();
+        $companyModel = new Company();
 
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
@@ -43,9 +45,14 @@ class Signin extends BaseController
         if ($data) {
             $hashed_password = $data['hashed_password'];
             if (password_verify($password, $hashed_password)) {
+
+                $company_data = $companyModel->where('users_id', $data["id"])->first();
+
                 $session_data = [
-                    'id' => $data['id'],
+                    'user_id' => $data['id'],
                     'email' => $data['email'],
+                    'company_id' => $company_data["id"],
+                    'company_name' => $company_data["name"],
                     'isLoggedIn' => TRUE
                 ];
 
