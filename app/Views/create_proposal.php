@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Consultation</title>
+    <title>Create New Consultation</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles.css" />
@@ -28,9 +28,14 @@
                 4
             </div>
         </div>
-
-        <form>
+        <?php if (isset($validation)) : ?>
+            <div class="alert alert-warning">
+                <?= $validation->listErrors() ?>
+            </div>
+        <?php endif; ?>
+        <form action="<?php echo base_url(); ?>/submit-proposal" method="post">
             <div class="mb-4">
+                <h2>Create Proposal For <?= $company_name ?></h2>
                 <div class="custom-h3">General</div>
                 <div class="custom-h6">
                     Enter the fields below to get a customised report on the product and/or service that would best suit you
@@ -39,21 +44,21 @@
             <hr class="hr-form">
             <div class="form-group my-3">
                 <label class="custom-label">Name *</label>
-                <input type="text" class="custom-textbox-input form-control" placeholder="Enter Name">
+                <input name="name" value="<?= isset($name) ? esc($name) : "" ?>" type="text" class="custom-textbox-input form-control" placeholder="Enter Name">
                 <span class="custom-form-input-info">Give your product a short and clear name</span>
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">About</label>
-                <textarea class="form-control custom-textarea-input" rows="4"></textarea>
+                <textarea name="about" class="form-control custom-textarea-input" rows="4"><?= isset($about) ? esc($about) : "" ?></textarea>
                 <span class="custom-form-input-info">Give your product a short and clear description</span>
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Website</label>
-                <input type="text" class="custom-textbox-input form-control" value="https://">
+                <input name="website" value="<?= isset($website) ? esc($website) : "" ?>" type="text" class="custom-textbox-input form-control" value="https://">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Location</label>
-                <select class="form-control custom-select-input">
+                <select value="<?= isset($location) ? esc($location) : "" ?>" name="location" class="form-control custom-select-input">
                     <option value="">Select location</option>
                     <option value="lagos">Lagos</option>
                     <option value="abuja">Abuja</option>
@@ -64,11 +69,11 @@
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Full address</label>
-                <textarea class="form-control custom-textarea-input" rows="2"></textarea>
+                <textarea name="address" class="form-control custom-textarea-input" rows="2"><?= isset($address) ? esc($address) : "" ?></textarea>
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Additional information</label>
-                <textarea class="form-control custom-textarea-input" rows="4"></textarea>
+                <textarea name="additional-general" class="form-control custom-textarea-input" rows="4"><?= isset($additional_general) ? esc($additional_general) : '' ?>"</textarea>
             </div>
             <div class="my-4">
                 <div class="custom-h3 mt-5">Market</div>
@@ -78,8 +83,8 @@
             </div>
             <hr class="hr-form">
             <div class="form-group my-3">
-                <label class="custom-label">Inudstry *</label>
-                <select class="form-control custom-select-input">
+                <label class="custom-label">Industry *</label>
+                <select value="<?= isset($category) ? esc($category) : '' ?>" name="category" class="form-control custom-select-input">
                     <option value="">Select Category</option>
                     <option value="lagos">Fashion</option>
                     <option value="abuja">Entertainment</option>
@@ -90,11 +95,11 @@
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Niche *</label>
-                <input type="text" class="custom-textbox-input form-control">
+                <input value="<?= isset($niche) ? esc($niche) : '' ?>" name="niche" type="text" class="custom-textbox-input form-control">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Additional information</label>
-                <textarea class="form-control custom-textarea-input" rows="4"></textarea>
+                <textarea name="additional-market" class="form-control custom-textarea-input" rows="4"><?= isset($additional_market) ? esc($additional_market) : '' ?></textarea>
             </div>
 
 
@@ -109,10 +114,10 @@
                 <label class="custom-label">Duration *</label>
                 <div class="row">
                     <div class="col-md-4 col-4 pr-0">
-                        <input type="number" class="custom-textbox-input form-control">
+                        <input value="<?= isset($duration_number) ? esc($duration_number) : '' ?>" name="duration-number" type="number" class="custom-textbox-input form-control">
                     </div>
                     <div class="col-md-6 col-6">
-                        <select class="form-control custom-select-input">
+                        <select value="<?= isset($duration_type) ? esc($duration_type) : '' ?>" name="duration-type" class="form-control custom-select-input">
                             <option value="">Days</option>
                             <option value="lagos">Weeks</option>
                             <option value="abuja">Months</option>
@@ -123,19 +128,19 @@
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Minimum budget (₦) *</label>
-                <input type="number" class="custom-textbox-input form-control">
+                <input value="<?= isset($minimum_budget) ? esc($minimum_budget) : '' ?>" name="minimum-budget" type="number" class="custom-textbox-input form-control">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Recommended budget (₦) *</label>
-                <input type="number" class="custom-textbox-input form-control">
+                <input value="<?= isset($recommmended_budget) ? esc($recommended_budget) : '' ?>" name="recommended-budget" type="number" class="custom-textbox-input form-control">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Number of users *</label>
-                <input type="number" class="custom-textbox-input form-control">
+                <input value="<?= isset($number_of_users) ? esc($number_of_users) : '' ?>" name="number-of-users" type="number" class="custom-textbox-input form-control">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Additional information</label>
-                <textarea class="form-control custom-textarea-input" rows="4"></textarea>
+                <textarea name="additional-metrics" class="form-control custom-textarea-input" rows="4"><?= isset($additional_metrics) ? esc($additional_metrics) : '' ?></textarea>
             </div>
 
             <div class="my-4">

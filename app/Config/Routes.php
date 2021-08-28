@@ -38,6 +38,7 @@ $routes->get('/signin', 'Signin::index');
 $routes->post('/signin', 'Signin::login');
 $routes->get('/profile', 'Profile::index', ['filter' => 'authGuard']);
 $routes->get('/submit-proposal', 'CreateProposal::index', ['filter' => 'authGuard']);
+$routes->post('/submit-proposal', 'CreateProposal::submit', ['filter' => 'authGuard']);
 
 
 /*
