@@ -33,7 +33,7 @@
                 <?= $validation->listErrors() ?>
             </div>
         <?php endif; ?>
-        <form action="<?php echo base_url(); ?>/submit-proposal" method="post">
+        <form action="<?php echo base_url(); ?>/consultation-request" method="post">
             <div class="mb-4">
                 <h2>Create Proposal For <?= $company_name ?></h2>
                 <div class="custom-h3">General</div>

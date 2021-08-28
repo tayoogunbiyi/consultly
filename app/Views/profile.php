@@ -17,7 +17,7 @@
             <div class="text-center custom-h1 mb-4">Profile</div>
             <h5>Welcome , <?= $email ?> </h5>
             <h5> Company - <?= $company_name ?> </h5>
-            <a href="/submit-proposal">Submit Proposal</a>
+            <a href="/consultation-request">Request Consultation</a>
         </div>
 
     </div>
