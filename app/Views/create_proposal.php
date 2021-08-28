@@ -44,22 +44,22 @@
             <hr class="hr-form">
             <div class="form-group my-3">
                 <label class="custom-label">Name *</label>
-                <input name="name" value="<?= isset($name) ? esc($name) : "" ?>" type="text" class="custom-textbox-input form-control" placeholder="Enter Name">
+                <input required name="name" value="<?= isset($name) ? esc($name) : "" ?>" type="text" class="custom-textbox-input form-control" placeholder="Enter Name">
                 <span class="custom-form-input-info">Give your product a short and clear name</span>
             </div>
             <div class="form-group my-3">
-                <label class="custom-label">About</label>
-                <textarea name="about" class="form-control custom-textarea-input" rows="4"><?= isset($about) ? esc($about) : "" ?></textarea>
+                <label class="custom-label">About *</label>
+                <textarea required name="about" class="form-control custom-textarea-input" rows="4"><?= isset($about) ? esc($about) : "" ?></textarea>
                 <span class="custom-form-input-info">Give your product a short and clear description</span>
             </div>
             <div class="form-group my-3">
-                <label class="custom-label">Website</label>
-                <input name="website" value="<?= isset($website) ? esc($website) : "" ?>" type="text" class="custom-textbox-input form-control" value="https://">
+                <label class="custom-label">Website *</label>
+                <input required name="website" value="<?= isset($website) ? esc($website) : "" ?>" type="text" class="custom-textbox-input form-control" value="https://">
             </div>
             <div class="form-group my-3">
-                <label class="custom-label">Location</label>
-                <select value="<?= isset($location) ? esc($location) : "" ?>" name="location" class="form-control custom-select-input">
-                    <option value="">Select location</option>
+                <label class="custom-label">Location *</label>
+                <select required value="<?= isset($location) ? esc($location) : "" ?>" name="location" class="form-control custom-select-input">
+                    <option value="none" selected disabled hidden>Select location</option>
                     <option value="lagos">Lagos</option>
                     <option value="abuja">Abuja</option>
                     <option value="Ogun">Ogun</option>
@@ -68,8 +68,8 @@
                 </select>
             </div>
             <div class="form-group my-3">
-                <label class="custom-label">Full address</label>
-                <textarea name="address" class="form-control custom-textarea-input" rows="2"><?= isset($address) ? esc($address) : "" ?></textarea>
+                <label class="custom-label">Full address *</label>
+                <textarea required name="address" class="form-control custom-textarea-input" rows="2"><?= isset($address) ? esc($address) : "" ?></textarea>
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Additional information</label>
@@ -84,18 +84,18 @@
             <hr class="hr-form">
             <div class="form-group my-3">
                 <label class="custom-label">Industry *</label>
-                <select value="<?= isset($category) ? esc($category) : '' ?>" name="category" class="form-control custom-select-input">
-                    <option value="">Select Category</option>
-                    <option value="lagos">Fashion</option>
-                    <option value="abuja">Entertainment</option>
-                    <option value="Ogun">School</option>
-                    <option value="Kwara">Construction</option>
-                    <option value="sokoto">Trade</option>
+                <select required value="<?= isset($category) ? esc($category) : '' ?>" name="category" class="form-control custom-select-input">
+                    <option value="none" selected disabled hidden>Select Category</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="school">School</option>
+                    <option value="construction">Construction</option>
+                    <option value="trade">Trade</option>
                 </select>
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Niche *</label>
-                <input value="<?= isset($niche) ? esc($niche) : '' ?>" name="niche" type="text" class="custom-textbox-input form-control">
+                <input required value="<?= isset($niche) ? esc($niche) : '' ?>" name="niche" type="text" class="custom-textbox-input form-control">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Additional information</label>
@@ -114,29 +114,29 @@
                 <label class="custom-label">Duration *</label>
                 <div class="row">
                     <div class="col-md-4 col-4 pr-0">
-                        <input value="<?= isset($duration_number) ? esc($duration_number) : '' ?>" name="duration-number" type="number" class="custom-textbox-input form-control">
+                        <input required value="<?= isset($duration_number) ? esc($duration_number) : '' ?>" name="duration-number" type="number" class="custom-textbox-input form-control">
                     </div>
                     <div class="col-md-6 col-6">
-                        <select value="<?= isset($duration_type) ? esc($duration_type) : '' ?>" name="duration-type" class="form-control custom-select-input">
-                            <option value="">Days</option>
-                            <option value="lagos">Weeks</option>
-                            <option value="abuja">Months</option>
-                            <option value="Ogun">Years</option>
+                        <select required value="<?= isset($duration_type) ? esc($duration_type) : '' ?>" name="duration-type" class="form-control custom-select-input">
+                            <option selected value="days">Days</option>
+                            <option value="weeks">Weeks</option>
+                            <option value="months">Months</option>
+                            <option value="years">Years</option>
                         </select>
                     </div>
                 </div>
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Minimum budget (₦) *</label>
-                <input value="<?= isset($minimum_budget) ? esc($minimum_budget) : '' ?>" name="minimum-budget" type="number" class="custom-textbox-input form-control">
+                <input required value="<?= isset($minimum_budget) ? esc($minimum_budget) : '' ?>" name="minimum-budget" type="number" class="custom-textbox-input form-control">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Recommended budget (₦) *</label>
-                <input value="<?= isset($recommmended_budget) ? esc($recommended_budget) : '' ?>" name="recommended-budget" type="number" class="custom-textbox-input form-control">
+                <input required value="<?= isset($recommmended_budget) ? esc($recommended_budget) : '' ?>" name="recommended-budget" type="number" class="custom-textbox-input form-control">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Number of users *</label>
-                <input value="<?= isset($number_of_users) ? esc($number_of_users) : '' ?>" name="number-of-users" type="number" class="custom-textbox-input form-control">
+                <input required value="<?= isset($number_of_users) ? esc($number_of_users) : '' ?>" name="number-of-users" type="number" class="custom-textbox-input form-control">
             </div>
             <div class="form-group my-3">
                 <label class="custom-label">Additional information</label>
