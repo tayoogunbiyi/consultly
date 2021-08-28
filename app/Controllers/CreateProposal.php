@@ -55,9 +55,10 @@ class CreateProposal extends BaseController
             $consultation_request_data["company_id"] = $this->session->get('company_id');
 
             $consultation_request->insert($consultation_request_data);
-            return redirect()->to("/signin");
+            d($consultation_request);
+            return redirect()->to("/consultation-request/{$consultation_request->getInsertID()}");
         } else {
-            
+
             $data["name"] = $this->request->getVar('name');
             $data["about"] = $this->request->getVar('about');
             $data["website"] = $this->request->getVar('website');
