@@ -39,8 +39,7 @@ $routes->post('/signin', 'Signin::login');
 $routes->get('/profile', 'Profile::index', ['filter' => 'authGuard']);
 $routes->get('/consultation-request', 'CreateProposal::index', ['filter' => 'authGuard']);
 $routes->post('/consultation-request', 'CreateProposal::submit', ['filter' => 'authGuard']);
-$routes->get('/consultation-request/:id', 'GetConsultationRequest::index', ['filter' => 'authGuard']);
-
+$routes->get('/consultation-request/(:num)', 'GetConsultationRequest::get/$1', ['filter' => 'authGuard']);
 
 
 /*
