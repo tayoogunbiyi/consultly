@@ -20,7 +20,7 @@
 }
 
 .centralised-section {
-  width: 50%;
+  width: 400px;
   margin: 10px auto;
 }
 
@@ -44,6 +44,25 @@
 
 .custom-primary-btn:hover {
   color: white;
+}
+
+.custom-secondary-btn {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+.custom-secondary-btn:hover {
+  background-color: black;
+  color: white;
+  transition: 0.2s;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
 }
 
 .off-white-color {
@@ -107,8 +126,49 @@
   margin: 2px;
 }
 
+.item-count {
+  font-size: 20px;
+  margin-left: 10px;
+  background: #d2d2d2;
+  padding: 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  position: absolute;
+}
+
 .consultation-form-section-inactive:hover {
   cursor: pointer;
+}
+
+table {
+  border: 1px solid #dfdfdf;
+}
+
+table > thead {
+  background-color: #f2f2f2;
+}
+
+.consultation-status {
+  background-color: #dfdfdf;
+  border-radius: 10px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  text-align: center;
+  width: fit-content;
+}
+
+td {
+  font-weight: 500;
+}
+
+.a-link {
+  color: black;
+}
+
+.a-link:hover {
+  color: black;
 }
 
 @media screen and (max-width: 400px) and (min-width: 0px) {
