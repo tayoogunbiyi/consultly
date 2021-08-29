@@ -13,14 +13,17 @@ class GetConsultationRequest extends BaseController
         $consultation_request = new ConsultationRequest();
         $consultation_request_data = $consultation_request->where('id', $id)->first();
         $user_id = $this->session->get('user_id');
-        if ($consultation_request_data && $consultation_request_data["users_id"] == $user_id) {
-            $data["name"] = $consultation_request_data["name"];
-            $data["about"] = $consultation_request_data["about"];
-            $data["website"] = $consultation_request_data["website"];
-            $data["address"] = $consultation_request_data["address"];
-            return view("get_consultation_request", $data);
-        }
 
+        if ($consultation_request_data) {
+            $can_view = $consultation_request_data["users_id"] == $user_id || $this->session->get('isAdmin');
+            if ($can_view) {
+                $data["name"] = $consultation_request_data["name"];
+                $data["about"] = $consultation_request_data["about"];
+                $data["website"] = $consultation_request_data["website"];
+                $data["address"] = $consultation_request_data["address"];
+                return view("get_consultation_request", $data);
+            }
+        }
         throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
     }
 }
