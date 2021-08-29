@@ -53,7 +53,8 @@ class Signin extends BaseController
                     'email' => $data['email'],
                     'company_id' => $company_data["id"],
                     'company_name' => $company_data["name"],
-                    'isLoggedIn' => TRUE
+                    'isLoggedIn' => TRUE,
+                    'isAdmin' => $data["is_admin"],
                 ];
 
                 $session->set($session_data);
