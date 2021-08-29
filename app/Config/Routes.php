@@ -41,6 +41,8 @@ $routes->get('/consultation-request', 'CreateProposal::index', ['filter' => 'aut
 $routes->post('/consultation-request', 'CreateProposal::submit', ['filter' => 'authGuard']);
 $routes->get('/consultation-request/(:num)', 'GetConsultationRequest::get/$1', ['filter' => 'authGuard']);
 
+$routes->get('/consultation-requests', 'GetConsultationRequests::index', ['filter' => 'authGuard']);
+
 
 /*
  * --------------------------------------------------------------------
