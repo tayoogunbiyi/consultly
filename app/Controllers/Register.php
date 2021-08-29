@@ -20,7 +20,7 @@ class Register extends BaseController
             'company-name'          => 'required|min_length[2]|max_length[50]|is_unique[companies.name]',
             'company-email'         => 'required|min_length[4]|max_length[100]|valid_email|is_unique[users.email]',
             'company-password'      => 'required|min_length[4]|max_length[50]',
-            'company-number'      => 'required|min_length[4]|max_length[50]',
+            'company-number'      => 'required|min_length[4]|max_length[50]|is_unique[companies.number]',
             'company-confirm-password'  => 'matches[company-password]',
         ];
 
