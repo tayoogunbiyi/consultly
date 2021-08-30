@@ -41,7 +41,7 @@
                     <?php foreach ($consultation_requests as $consultation_request) : ?>
                         <tr>
                             <td>
-                                <a class="a-link" href="<?php echo '/consultation-request' . '/' . $consultation_request["id"] ?>"> <?php echo $consultation_request["name"]; ?> </a>
+                                <a href="<?php echo '/consultation-request' . '/' . $consultation_request["id"] ?>"> <?php echo $consultation_request["name"]; ?> </a>
                             </td>
                             <td style="color: #646464;"><?php echo $consultation_request["category"]; ?></td>
                             <td style="color: #646464;"><?php echo $consultation_request["about"]; ?></td>
@@ -52,7 +52,7 @@
                             </td>
                             <td class="text-center" style="color: #646464;">
                                 <a href="#" class="a-link">
-                                    Edit <i class="fas fa-edit"></i>
+                                    Submit Review <i class="fas fa-edit"></i>
                                 </a>
                             </td>
                         </tr>
