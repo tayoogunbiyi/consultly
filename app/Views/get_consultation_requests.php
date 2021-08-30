@@ -52,7 +52,7 @@
                             </td>
                             <td class="text-center" style="color: #646464;">
                                 <a href="#" class="a-link">
-                                    Submit Review <i class="fas fa-edit"></i>
+                                    Review <i class="fas fa-edit"></i>
                                 </a>
                             </td>
                         </tr>
