@@ -17,7 +17,45 @@
             <div class="text-center custom-h1 mb-4">Profile</div>
             <h5>Welcome , <?= $email ?> </h5>
             <h5> Company - <?= $company_name ?> </h5>
-            <a href="/consultation-request">Request Consultation</a>
+            <a href="/consultation-request">Request New Consultation</a>
+        </div>
+
+        <div>
+            <h4>You've requested <?= $consultation_requests_count ?> consultation(s) </h4>
+            <table class="table table-responsive-sm my-3">
+                <thead>
+                    <tr>
+                        <th>Proposal</th>
+                        <th>Category</th>
+                        <th>About</th>
+                        <th>Website</th>
+                        <th>Created on</th>
+                        <th>Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($consultation_requests as $consultation_request) : ?>
+                        <tr>
+                            <td>
+                                <a href="<?php echo '/consultation-request' . '/' . $consultation_request["id"] ?>"> <?php echo $consultation_request["name"]; ?> </a>
+                            </td>
+                            <td style="color: #646464;"><?php echo $consultation_request["category"]; ?></td>
+                            <td style="color: #646464;"><?php echo $consultation_request["about"]; ?></td>
+                            <td style="color: #646464;"><?php echo $consultation_request["website"]; ?></td>
+                            <td style="color: #646464;"><?php echo $consultation_request["createdAt"]; ?></td>
+                            <td>
+                                <div class="consultation-status"><?php echo $consultation_request["status"]; ?></div>
+                            </td>
+                            <td class="text-center" style="color: #646464;">
+                                <a href="#" class="a-link">
+                                    Edit <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
 
     </div>
