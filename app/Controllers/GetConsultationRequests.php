@@ -12,11 +12,7 @@ class GetConsultationRequests extends BaseController
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         } else {
             $consultation_request = new ConsultationRequest();
-            d($consultation_request);
-
             $consultation_request_data = $consultation_request->findAll();
-            // $consultation_request_data.count()
-            d($consultation_request_data);
 
             $data["count"] = count($consultation_request_data);
             $data["consultation_requests"] = $consultation_request_data;
