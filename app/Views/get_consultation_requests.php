@@ -63,7 +63,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div style="color: #a2a0a1;font-weight: bold;">Showing <span style="color: black;">1</span> to <span style="color: black;"><?= $count ?></span> of results</div>
+                    <div style="color: #a2a0a1;font-weight: bold;">Showing <span style="color: black;">1</span> to <span style="color: black;"><?= $count ?></span> of <?= $count ?> results</div>
                 </div>
                 <!-- <div class="col-md-6 text-right mt-3 mt-md-0">
                     <button type="button" class="btn custom-secondary-btn d-inline-block">Previous</button>
