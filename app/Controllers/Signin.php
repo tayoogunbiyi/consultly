@@ -40,13 +40,15 @@ class Signin extends BaseController
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
-        $data = $userModel->where('email', $email)->first();
+        $query1 = $this->db->query("SELECT * FROM users WHERE email=?", [$email]); #SQL Query 2
+        $data = $query1->getRowArray();
 
         if ($data) {
             $hashed_password = $data['hashed_password'];
             if (password_verify($password, $hashed_password)) {
 
-                $company_data = $companyModel->where('users_id', $data["id"])->first();
+                $query2 = $this->db->query("SELECT * FROM companies WHERE users_id=?", [$data["id"]]); #SQL Query 3
+                $company_data = $query2->getRowArray();
 
                 $session_data = [
                     'user_id' => $data['id'],

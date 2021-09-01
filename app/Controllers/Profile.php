@@ -12,8 +12,8 @@ class Profile extends BaseController
             return redirect()->to("/consultation-requests");
         }
 
-        $consultation_request_model = new ConsultationRequest();
-        $consultation_request_data = $consultation_request_model->where('users_id', $this->session->get("user_id"))->findAll();
+        $query = $this->db->query("SELECT * FROM consultation_request WHERE users_id=?", [$this->session->get("user_id")]); #SQL Query 4
+        $consultation_request_data = $query->getResultArray();
 
         $data["email"] = $this->session->get('email');
         $data["company_name"] = $this->session->get('company_name');

@@ -18,7 +18,6 @@ class UpdateConsultationRequest extends BaseController
         if ($consultation_request_data) {
             $can_view = $consultation_request_data["users_id"] == $user_id;
             if ($can_view) {
-                d($consultation_request_data);
                 return view("update_consultation_request", $consultation_request_data);
             }
         }

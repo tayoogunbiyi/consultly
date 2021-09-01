@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\ConsultationRequest;
 
 class GetConsultationRequests extends BaseController
 {
@@ -11,8 +10,8 @@ class GetConsultationRequests extends BaseController
         if (!$this->session->get('isAdmin')) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         } else {
-            $consultation_request = new ConsultationRequest();
-            $consultation_request_data = $consultation_request->findAll();
+            $query = $this->db->query("SELECT * FROM consultation_request", [$this->session->get("user_id")]); #SQL Query 5
+            $consultation_request_data = $query->getResultArray();
 
             $data["count"] = count($consultation_request_data);
             $data["consultation_requests"] = $consultation_request_data;

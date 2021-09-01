@@ -33,15 +33,18 @@ class Register extends BaseController
                 'hashed_password' => password_hash($this->request->getVar('company-password'), PASSWORD_BCRYPT),
             ];
 
-            $user->insert($user_data);
+            $sql = "INSERT INTO users (email, hashed_password) VALUES (" . $this->db->escape($user_data["email"]) . ", " . $this->db->escape($user_data["hashed_password"]) . ")";
+
+            $this->db->query($sql);
 
             $company_data = [
                 "name" => $this->request->getVar('company-name'),
                 "number" => $this->request->getVar('company-number'),
-                "users_id" => $user->getInsertID(),
+                "users_id" => $this->db->insertID(),
             ];
 
-            $company->insert($company_data);
+            $sql = "INSERT INTO companies (name, number, users_id) VALUES (" . $this->db->escape($company_data["name"]) . ", " . $this->db->escape($company_data["number"]) . ", " . $this->db->escape($company_data["users_id"]) . ")";
+            $this->db->query($sql);
 
             $this->session->setFlashdata("from_registration", true);
             return redirect()->to('/signin');

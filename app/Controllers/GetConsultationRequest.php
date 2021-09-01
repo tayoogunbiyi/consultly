@@ -10,8 +10,9 @@ class GetConsultationRequest extends BaseController
 {
     public function get($id)
     {
-        $consultation_request = new ConsultationRequest();
-        $consultation_request_data = $consultation_request->where('id', $id)->first();
+        $query = $this->db->query("SELECT * FROM consultation_request WHERE id=? ", [$id]); #SQL Query 1
+        $consultation_request_data = $query->getRowArray();
+
         $user_id = $this->session->get('user_id');
 
         if ($consultation_request_data) {
