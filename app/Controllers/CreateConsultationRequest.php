@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ConsultationRequest;
 
-class CreateProposal extends BaseController
+class CreateConsultationRequest extends BaseController
 {
     public function index()
     {

@@ -37,11 +37,15 @@ $routes->post('/signup', 'Register::save');
 $routes->get('/signin', 'Signin::index');
 $routes->post('/signin', 'Signin::login');
 $routes->get('/profile', 'Profile::index', ['filter' => 'authGuard']);
-$routes->get('/consultation-request', 'CreateProposal::index', ['filter' => 'authGuard']);
-$routes->post('/consultation-request', 'CreateProposal::submit', ['filter' => 'authGuard']);
+$routes->get('/consultation-request', 'CreateConsultationRequest::index', ['filter' => 'authGuard']);
+$routes->post('/consultation-request', 'CreateConsultationRequest::submit', ['filter' => 'authGuard']);
 $routes->get('/consultation-request/(:num)', 'GetConsultationRequest::get/$1', ['filter' => 'authGuard']);
 
 $routes->get('/consultation-requests', 'GetConsultationRequests::index', ['filter' => 'authGuard']);
+
+$routes->get('/consultation-request/(:num)/edit', 'UpdateConsultationRequest::get/$1', ['filter' => 'authGuard']);
+$routes->post('/consultation-request/(:num)/edit', 'UpdateConsultationRequest::submit/$1', ['filter' => 'authGuard']);
+
 
 
 /*
