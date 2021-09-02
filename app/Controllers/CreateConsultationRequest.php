@@ -19,7 +19,6 @@ class CreateConsultationRequest extends BaseController
         $rules = [
             "name" => 'required|min_length[2]|max_length[50]',
             "about" => 'required|min_length[10]|max_length[100]',
-            "website" => 'required|min_length[10]|max_length[50]',
             "location" => 'required|min_length[2]|max_length[50]',
             "address" => 'required|min_length[2]|max_length[100]',
             "category" => 'required|min_length[2]|max_length[100]',
@@ -73,7 +72,7 @@ class CreateConsultationRequest extends BaseController
                 . $this->db->escape($users_id) . ", " . $this->db->escape($company_id) .
                 ")";
 
-            
+
             $this->db->query($sql);
 
             $success = $this->db->affectedRows() > 0;
