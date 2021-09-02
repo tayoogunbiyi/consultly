@@ -45,7 +45,7 @@
 				</div>
 
 				<div class="col-lg-4 my-4">
-					<input type="submit" value="Book a Consultation" class="custom-primary-btn btn">
+					<a href="/signin"><input type="submit" value="Get Started" class="custom-primary-btn btn"></a>
 				</div>
 
 				<div class="col-8"></div>
