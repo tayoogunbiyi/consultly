@@ -75,7 +75,7 @@ class UpdateConsultationRequest extends BaseController
             ";
 
             $this->db->query($sql);
-            
+
             return redirect()->to("/consultation-request/{$id}");
         } else {
 
@@ -102,7 +102,7 @@ class UpdateConsultationRequest extends BaseController
             $data["company_name"] = $this->session->get('company_name');
             $data['validation'] = $this->validator;
 
-            echo view('create_proposal', $data);
+            echo view('update_consultation_request', $data);
         }
     }
 }
