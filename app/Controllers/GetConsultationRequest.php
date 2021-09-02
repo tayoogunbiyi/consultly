@@ -21,6 +21,7 @@ class GetConsultationRequest extends BaseController
                 $query = $this->db->query("SELECT * FROM companies WHERE id=? ", [$consultation_request_data["company_id"]]); #SQL Query 10
 
                 $consultation_request_data["company_name"] = $query->getRowArray()["name"];
+                $consultation_request_data["is_admin"] = $this->session->get('isAdmin');;
                 return view("get_consultation_request", $consultation_request_data);
             }
         }

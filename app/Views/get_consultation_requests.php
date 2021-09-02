@@ -51,7 +51,7 @@
                                 <div class="consultation-status"><?php echo $consultation_request["status"]; ?></div>
                             </td>
                             <td class="text-center" style="color: #646464;">
-                                <a href="#" class="a-link">
+                                <a class="a-link" href="<?php echo '/consultation-request' . '/' . $consultation_request["id"] . '/review' ?>">
                                     Review <i class="fas fa-edit"></i>
                                 </a>
                             </td>

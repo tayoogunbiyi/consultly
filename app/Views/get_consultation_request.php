@@ -24,7 +24,18 @@
                     <span class="consultation-status text-lowercase ml-2"><?= $status ?></span>
                 </div>
                 <div class="col-md-5 text-md-right" style="margin-top: 18px;">
-                    <button class="btn custom-secondary-btn" style="display: inline-block;">Report</button>
+                    <?php
+                    if ($is_admin) {
+                    ?>
+                        <a href="<?php echo '/consultation-request' . '/' . $id . '/review' ?>"><button class="btn custom-secondary-btn" style="display: inline-block;">Submit Review</button></a>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="<?php echo '/consultation-request' . '/' . $id . '/edit' ?>"><button class="btn custom-secondary-btn" style="display: inline-block;">Edit</button></a>
+
+                    <?php
+                    }
+                    ?>
                 </div>
 
             </div>
