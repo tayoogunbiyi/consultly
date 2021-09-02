@@ -176,3 +176,28 @@ td {
     width: 80%;
   }
 }
+
+.report-card {
+  margin-top: 20px;
+  background-color: #f7f5f5;
+}
+
+.report-header {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.report-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #c9c9c9;
+}
+
+.report-details {
+  font-size: 16px;
+  font-weight: bold;
+  color: #595959;
+  margin-bottom: 15px;
+  text-align: justify;
+}
