@@ -30,8 +30,7 @@ class ConsultationRequestModel extends Migration
 				'constraint' => '100',
 			],
 			'about'       => [
-				'type'       => 'VARCHAR',
-				'constraint' => '200',
+				'type'       => 'TEXT'
 			],
 			'website'       => [
 				'type'       => 'VARCHAR',
@@ -42,8 +41,7 @@ class ConsultationRequestModel extends Migration
 				'constraint' => '200',
 			],
 			'address'       => [
-				'type'       => 'VARCHAR',
-				'constraint' => '200',
+				'type'       => 'TEXT'
 			],
 			'category'       => [
 				'type'       => 'VARCHAR',
@@ -74,8 +72,7 @@ class ConsultationRequestModel extends Migration
 				'unsigned'       => true,
 			],
 			'additional'       => [
-				'type'       => 'VARCHAR',
-				'constraint' => '200',
+				'type'       => 'TEXT'
 			],
 			'createdAt timestamp default now()',
 			'updatedAt timestamp default now() on update now()'
