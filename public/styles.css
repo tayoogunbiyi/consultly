@@ -201,3 +201,7 @@ td {
   margin-bottom: 15px;
   text-align: justify;
 }
+
+.menu > * {
+  color: black;
+}

@@ -16,19 +16,13 @@
 		<div class="col-2" style="background-color: #C4C4C4;"></div>
 		<div class="col-8" style="background-color: #C4C4C4;">
 			<div class="row my-4">
-				<div class="col-lg-2"> <a class="mr-100" href="signin.html" class="font-weight-bolder custom-link-black">Home</a>
+				<div class="col-lg-2 menu"> <a class="mr-100" href="/" class="font-weight-bolder custom-link-black">Home</a>
 				</div>
-				<div class="col-lg-2">
-					<a class="mr-100" href="signin.html" class="font-weight-bolder custom-link-black">Service</a>
+				<div class="col-lg-2 menu">
+					<a class="mr-100" href="./about" class="font-weight-bolder custom-link-black">About Us</a>
 				</div>
-				<div class="col-lg-2">
-					<a class="mr-100" href="signin.html" class="font-weight-bolder custom-link-black">Booking</a>
-				</div>
-				<div class="col-lg-2">
-					<a class="mr-100" href="signin.html" class="font-weight-bolder custom-link-black">About Us</a>
-				</div>
-				<div class="col-lg-2">
-					<a class="mr-100" href="signin.html" class="font-weight-bolder custom-link-black">Contact</a>
+				<div class="col-lg-2 menu">
+					<a class="mr-100" href="./contact" class="font-weight-bolder custom-link-black">Contact</a>
 				</div>
 
 				<div class="col-12 mt-5"></div>
