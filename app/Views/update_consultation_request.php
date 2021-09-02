@@ -53,7 +53,7 @@
                 <span class="custom-form-input-info">Give your product a short and clear description</span>
             </div>
             <div class="form-group my-3">
-                <label class="custom-label">Website *</label>
+                <label class="custom-label">Website</label>
                 <input required name="website" value="<?= isset($website) ? esc($website) : "" ?>" type="text" class="custom-textbox-input form-control" value="https://">
             </div>
             <div class="form-group my-3">
