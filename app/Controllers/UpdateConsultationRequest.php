@@ -8,13 +8,14 @@ class UpdateConsultationRequest extends BaseController
 {
     public function get($id)
     {
-        $consultation_request = new ConsultationRequest();
-        $consultation_request_data = $consultation_request->where('id', $id)->first();
+        $query = $this->db->query("SELECT * FROM consultation_request WHERE id=? ", [$id]); #SQL Query 9
+        $consultation_request_data = $query->getRowArray();
         $user_id = $this->session->get('user_id');
 
 
         $consultation_request_data["email"] = $this->session->get('email');
         $consultation_request_data["company_name"] = $this->session->get('company_name');
+
         if ($consultation_request_data) {
             $can_view = $consultation_request_data["users_id"] == $user_id;
             if ($can_view) {
@@ -47,27 +48,34 @@ class UpdateConsultationRequest extends BaseController
             $consultation_request_data = [];
 
 
-            $consultation_request_data["name"] = $this->request->getVar('name');
-            $consultation_request_data["about"] = $this->request->getVar('about');
-            $consultation_request_data["website"] = $this->request->getVar('website');
-            $consultation_request_data["location"] = $this->request->getVar('location');
-            $consultation_request_data["address"] = $this->request->getVar('address');
 
-            $consultation_request_data["category"] = $this->request->getVar('category');
-            $consultation_request_data["niche"] = $this->request->getVar('niche');
-            $consultation_request_data["duration_days"] = $this->request->getVar('duration-number');
+            $name = $this->request->getVar('name');
+            $about = $this->request->getVar('about');
+            $website = $this->request->getVar('website');
+            $location = $this->request->getVar('location');
+            $address = $this->request->getVar('address');
 
-            $consultation_request_data["minimum_budget"] = $this->request->getVar('minimum-budget');
-            $consultation_request_data["recommended_budget"] = $this->request->getVar('recommended-budget');
-            $consultation_request_data["number_of_users"] = $this->request->getVar('number-of-users');
-            $consultation_request_data["additional"] = $this->request->getVar('additional-metrics');
+            $category = $this->request->getVar('category');
+            $niche = $this->request->getVar('niche');
+            $duration_days = $this->request->getVar('duration-number');
 
-            $consultation_request_data["users_id"] = $this->session->get('user_id');
-            $consultation_request_data["company_id"] = $this->session->get('company_id');
+            $minimum_budget = $this->request->getVar('minimum-budget');
+            $recommended_budget = $this->request->getVar('recommended-budget');
+            $number_of_users = $this->request->getVar('number-of-users');
+            $additional = $this->request->getVar('additional-metrics');
 
-            $consultation_request->update($id, $consultation_request_data);
+            $users_id = $this->session->get('user_id');
+            $company_id = $this->session->get('company_id');
 
-            $OK["12"] = 44;
+
+            $sql = "
+                UPDATE consultation_request
+                SET name='{$name}',about='${about}',website='${website}',location='${location}',address='${address}',category='${category}',niche='${niche}',duration_days='${duration_days}',minimum_budget='${minimum_budget}',recommended_budget='${recommended_budget}',number_of_users='${number_of_users}',additional='${additional}',users_id='${users_id}',company_id='${company_id}'
+                WHERE id='{$id}'
+            ";
+
+            $this->db->query($sql);
+            
             return redirect()->to("/consultation-request/{$id}");
         } else {
 

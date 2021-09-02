@@ -33,7 +33,7 @@ class Register extends BaseController
                 'hashed_password' => password_hash($this->request->getVar('company-password'), PASSWORD_BCRYPT),
             ];
 
-            $sql = "INSERT INTO users (email, hashed_password) VALUES (" . $this->db->escape($user_data["email"]) . ", " . $this->db->escape($user_data["hashed_password"]) . ")";
+            $sql = "INSERT INTO users (email, hashed_password) VALUES (" . $this->db->escape($user_data["email"]) . ", " . $this->db->escape($user_data["hashed_password"]) . ")"; # SQL Query 7 
 
             $this->db->query($sql);
 
@@ -43,7 +43,7 @@ class Register extends BaseController
                 "users_id" => $this->db->insertID(),
             ];
 
-            $sql = "INSERT INTO companies (name, number, users_id) VALUES (" . $this->db->escape($company_data["name"]) . ", " . $this->db->escape($company_data["number"]) . ", " . $this->db->escape($company_data["users_id"]) . ")";
+            $sql = "INSERT INTO companies (name, number, users_id) VALUES (" . $this->db->escape($company_data["name"]) . ", " . $this->db->escape($company_data["number"]) . ", " . $this->db->escape($company_data["users_id"]) . ")"; # SQL Query 8
             $this->db->query($sql);
 
             $this->session->setFlashdata("from_registration", true);
