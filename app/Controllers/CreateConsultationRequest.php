@@ -10,7 +10,7 @@ class CreateConsultationRequest extends BaseController
     {
         $data["email"] = $this->session->get('email');
         $data["company_name"] = $this->session->get('company_name');
-        return view("create_proposal", $data);
+        return view("create_consultation_request", $data);
     }
 
     public function submit()
@@ -101,7 +101,7 @@ class CreateConsultationRequest extends BaseController
                 $data["company_name"] = $this->session->get('company_name');
                 $data['validation'] = $this->validator;
 
-                return view('create_proposal', $data);
+                return view('create_consultation_request', $data);
             }
             return redirect()->to("/consultation-request/{$this->db->insertID()}");
         } else {
@@ -129,7 +129,7 @@ class CreateConsultationRequest extends BaseController
             $data["company_name"] = $this->session->get('company_name');
             $data['validation'] = $this->validator;
 
-            echo view('create_proposal', $data);
+            echo view('create_consultation_request', $data);
         }
     }
 }
