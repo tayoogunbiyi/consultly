@@ -2,10 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\ConsultationRequest;
-use CodeIgniter\Exceptions\PageNotFoundException;
-use Exception;
-
 class GetConsultationRequest extends BaseController
 {
     public function get($id)
