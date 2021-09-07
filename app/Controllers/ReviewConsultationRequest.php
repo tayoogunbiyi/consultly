@@ -63,12 +63,20 @@ class ReviewConsultationRequest extends BaseController
                 ")";
 
             $this->db->query($sql);
+            $insertID = $this->db->insertID();
+            if ($this->db->affectedRows() > 0) {
+                $sql = "
+                UPDATE consultation_request
+                SET status='completed'
+                WHERE id='{$id}'
+            ";
+                $this->db->query($sql);
 
-            $this->db->affectedRows() > 0;
-            return redirect()->to("/consultation-report/{$this->db->insertID()}");
+                // TODO - Add to users pending new stuff to review
+            }
+            return redirect()->to("/consultation-report/{$insertID}");
         } else {
 
-            $data["company_name"] = $this->session->get('company_name');
             $data["company_name"] = $this->session->get('company_name');
 
             $query = $this->db->query("SELECT * FROM consultation_request WHERE id=? ", [$id]); #SQL Query 1
