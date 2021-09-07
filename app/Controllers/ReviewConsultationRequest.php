@@ -7,6 +7,9 @@ class ReviewConsultationRequest extends BaseController
 {
     public function get($id)
     {
+        if (!$this->session->get('isAdmin')) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
         $data["company_name"] = $this->session->get('company_name');
 
         $query = $this->db->query("SELECT * FROM consultation_request WHERE id=? ", [$id]); #SQL Query 1
@@ -21,6 +24,9 @@ class ReviewConsultationRequest extends BaseController
 
     public function submit($id)
     {
+        if (!$this->session->get('isAdmin')) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
         helper(['form']);
 
         $rules = [
