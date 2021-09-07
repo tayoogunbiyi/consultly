@@ -21,7 +21,10 @@ class GetConsultationRequest extends BaseController
 
                 $query = $this->db->query("SELECT * FROM consultation_report WHERE request_id=? ", [$id]); #SQL Query 11
 
-                $consultation_request_data["has_been_reviewed"] = $query->getRowArray() != null;
+                $report_data = $query->getRowArray();
+                $consultation_request_data["has_been_reviewed"] = $report_data != null;
+                $consultation_request_data["report_id"] = $report_data["id"];
+
 
                 return view("get_consultation_request", $consultation_request_data);
             }

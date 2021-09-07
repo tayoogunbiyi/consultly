@@ -30,7 +30,7 @@
                         <?php
                         if ($has_been_reviewed) {
                         ?>
-                            <a href="<?php echo '/consultation-report' . '/' . $id  ?>"><button class="btn custom-secondary-btn" style="display: inline-block;">View Review</button></a>
+                            <a href="<?php echo '/consultation-report' . '/' . $report_id  ?>"><button class="btn custom-secondary-btn" style="display: inline-block;">View Review</button></a>
                         <?php
                         } else {
                         ?>
