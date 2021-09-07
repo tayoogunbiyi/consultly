@@ -49,6 +49,7 @@ $routes->post('/consultation-request/(:num)/edit', 'UpdateConsultationRequest::s
 $routes->get('/consultation-request/(:num)/review', 'ReviewConsultationRequest::get/$1', ['filter' => 'authGuard']);
 $routes->post('/consultation-request/(:num)/review', 'ReviewConsultationRequest::submit/$1', ['filter' => 'authGuard']);
 
+$routes->get('/consultation-report/(:num)', 'GetConsultationReport::get/$1', ['filter' => 'authGuard']);
 
 
 /*

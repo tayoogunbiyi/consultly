@@ -34,7 +34,6 @@
                         <th>Website</th>
                         <th>Created on</th>
                         <th>Status</th>
-                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,11 +48,6 @@
                             <td style="color: #646464;"><?php echo $consultation_request["createdAt"]; ?></td>
                             <td>
                                 <div class="consultation-status"><?php echo $consultation_request["status"]; ?></div>
-                            </td>
-                            <td class="text-center" style="color: #646464;">
-                                <a class="a-link" href="<?php echo '/consultation-request' . '/' . $consultation_request["id"] . '/review' ?>">
-                                    Review <i class="fas fa-edit"></i>
-                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

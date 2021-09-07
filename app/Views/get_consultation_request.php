@@ -27,7 +27,17 @@
                     <?php
                     if ($is_admin) {
                     ?>
-                        <a href="<?php echo '/consultation-request' . '/' . $id . '/review' ?>"><button class="btn custom-secondary-btn" style="display: inline-block;">Submit Review</button></a>
+                        <?php
+                        if ($has_been_reviewed) {
+                        ?>
+                            <a href="<?php echo '/consultation-report' . '/' . $id  ?>"><button class="btn custom-secondary-btn" style="display: inline-block;">View Review</button></a>
+                        <?php
+                        } else {
+                        ?>
+                            <a href="<?php echo '/consultation-request' . '/' . $id . '/review' ?>"><button class="btn custom-secondary-btn" style="display: inline-block;">Submit Review</button></a>
+                        <?php
+                        }
+                        ?>
                     <?php
                     } else {
                     ?>
