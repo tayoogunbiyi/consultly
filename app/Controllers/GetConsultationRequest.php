@@ -23,7 +23,11 @@ class GetConsultationRequest extends BaseController
 
                 $report_data = $query->getRowArray();
                 $consultation_request_data["has_been_reviewed"] = $report_data != null;
-                $consultation_request_data["report_id"] = $report_data["id"];
+                if ($report_data != null) {
+                    $consultation_request_data["report_id"] = $report_data["id"];
+                } else {
+                    $consultation_request_data["report_id"] = null;
+                }
 
 
                 return view("get_consultation_request", $consultation_request_data);

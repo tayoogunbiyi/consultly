@@ -35,7 +35,7 @@
         <?php endif; ?>
         <form action="<?php echo '/consultation-request' . '/' . $id . '/edit' ?>" method="post">
             <div class="mb-4">
-                <h2>Create Proposal For <?= $company_name ?></h2>
+                <h2>Edit Proposal For <?= $company_name ?></h2>
                 <div class="custom-h3">General</div>
                 <div class="custom-h6">
                     Enter the fields below to get a customised report on the product and/or service that would best suit you
