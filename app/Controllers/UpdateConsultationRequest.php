@@ -15,7 +15,6 @@ class UpdateConsultationRequest extends BaseController
 
         $consultation_request_data["email"] = $this->session->get('email');
         $consultation_request_data["company_name"] = $this->session->get('company_name');
-        $consultation_request_data["id"] = $id;
 
         if ($consultation_request_data) {
             $can_view = $consultation_request_data["users_id"] == $user_id;
@@ -80,6 +79,11 @@ class UpdateConsultationRequest extends BaseController
             return redirect()->to("/consultation-request/{$id}");
         } else {
 
+            $query = $this->db->query("SELECT * FROM consultation_request WHERE id=? ", [$id]); #SQL Query 9
+            $data = $query->getRowArray();
+
+            $data["email"] = $this->session->get('email');
+            $data["company_name"] = $this->session->get('company_name');
             $data["name"] = $this->request->getVar('name');
             $data["about"] = $this->request->getVar('about');
             $data["website"] = $this->request->getVar('website');
