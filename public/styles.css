@@ -7,6 +7,11 @@ html {
   font-weight: 700;
 }
 
+.custom-h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
 .custom-h3 {
   font-weight: 700;
   font-size: 25px;
@@ -61,6 +66,13 @@ html {
   background-color: black;
   color: white;
   transition: 0.2s;
+}
+
+.custom-dashed-white-btn {
+  background-color: white;
+  color: #5c5c5c;
+  font-weight: bold;
+  border: 2px dashed #5c5c5c;
 }
 
 .btn:focus,
@@ -206,6 +218,14 @@ td {
   text-align: justify;
 }
 
-.menu > * {
-  color: black;
+.notification-tab {
+  background-color: #dfdfdf;
+  padding: 10px;
+  border-radius: 13px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.a-link-nodecoration:hover {
+  text-decoration: none;
 }
