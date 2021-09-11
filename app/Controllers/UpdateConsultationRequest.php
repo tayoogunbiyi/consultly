@@ -15,6 +15,7 @@ class UpdateConsultationRequest extends BaseController
 
         $consultation_request_data["email"] = $this->session->get('email');
         $consultation_request_data["company_name"] = $this->session->get('company_name');
+        $consultation_request_data["id"] = $id;
 
         if ($consultation_request_data) {
             $can_view = $consultation_request_data["users_id"] == $user_id;
