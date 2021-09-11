@@ -51,6 +51,10 @@ $routes->post('/consultation-request/(:num)/review', 'ReviewConsultationRequest:
 
 $routes->get('/consultation-report/(:num)', 'GetConsultationReport::get/$1', ['filter' => 'authGuard']);
 
+$routes->get('/about', 'Contact::index');
+$routes->post('/about', 'Contact::submit');
+
+
 
 /*
  * --------------------------------------------------------------------
