@@ -152,6 +152,9 @@ html {
   position: absolute;
 }
 
+.request-info-text {
+  font-size: 16px;
+}
 .consultation-form-section-inactive:hover {
   cursor: pointer;
 }

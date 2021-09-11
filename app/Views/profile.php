@@ -4,24 +4,59 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <title>Profile | <?= $company_name ?> </title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 
-<body class="">
+<body class="mb-5">
     <div class="mt-5">
-        <div class="centralised-section">
-            <div class="text-center custom-h1 mb-4">Profile</div>
-            <h5>Welcome , <?= $email ?> </h5>
-            <h5> Company - <?= $company_name ?> </h5>
-            <a href="/consultation-request">Request New Consultation</a>
-        </div>
+        <div class="container">
+            <div class="notification-tab">
+                <div class="row">
+                    <div class="col-md-10">
+                        <i class="far fa-bell mr-2"></i>
+                        You have three completed consultations pending review. View now
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <a href="#" class="a-link a-link-nodecoration"><i class="far fa-window-close"></i> close</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-9">
+                    <div style="width: 100%; display: table;">
+                        <div style="display: table-row">
+                            <div class="profile-image" style="display: table-cell;">
+                                <img class="img-fluid" src="<?php echo 'https://robohash.org/' . $email . ".png" ?>">
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-info-name"> Welcome, <?= $email ?></div>
+                                <div class="profile-info-company-name"> <?= $company_name ?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="text-md-right mt-2">
+                        <a href="/signin"><button class="btn custom-secondary-btn">Log out</button></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin:50px 5px">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="text-left custom-h1 mb-4">Consultations</span>
+                    <br />
+                    <span class="request-info-text text-muted">You have requested <?= $consultation_requests_count ?> consultation(s) </span>
+                </div>
+                <div class="col-md-6 text-md-right" style="padding-top: 15px;">
+                    <a href="/consultation-request"><button type="button" class="btn custom-primary-btn d-inline-block mr-3" style="width:60px">New</button></a>
+                </div>
+            </div>
 
-        <div>
-            <h4>You've requested <?= $consultation_requests_count ?> consultation(s) </h4>
             <table class="table table-responsive-sm my-3">
                 <thead>
                     <tr>
@@ -56,6 +91,13 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div style="color: #a2a0a1;font-weight: bold;">Showing <span style="color: black;">1</span> to <span style="color: black;"> <?= $consultation_requests_count ?> </span> of <?= $consultation_requests_count ?> results</div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -76,3 +118,35 @@
 </body>
 
 </html>
+
+
+<style>
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        background-color: #dfdfdf;
+        margin-right: 10px;
+        vertical-align: bottom;
+        display: table-cell;
+        border-radius: 15px;
+    }
+
+    .profile-info {
+        padding-bottom: 16px;
+        padding-left: 10px;
+    }
+
+    .profile-info-company-name {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        line-height: 22px;
+    }
+
+    .profile-info-name {
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 27px;
+        margin-bottom: 10px;
+    }
+</style>
