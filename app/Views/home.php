@@ -22,7 +22,7 @@
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
 						<a class="nav-item nav-link" href="#services">Services</a>
-						<a href="/about" class="nav-item nav-link">
+						<a href="#about" class="nav-item nav-link">
 							About us
 						</a>
 						<a href="/contact" class="nav-item nav-link">
@@ -38,7 +38,7 @@
 				</div>
 
 
-				<div class="my-4 header-paragraph" style="">
+				<div class="my-4 header-paragraph">
 					The easier approach to reaching your business goals
 				</div>
 				<div>
@@ -76,10 +76,10 @@
 		</div>
 
 	</div>
-
+	<br />
 	<div>
 		<div class="container">
-			<div class="section-header">
+			<div id="about" class="section-header">
 				Who are we
 			</div>
 			<div class="row mb-5">
@@ -92,6 +92,9 @@
 					Our focus is to align and elevate every business's desires to its full potential. Our goal is our customers' satisfaction. 
 				</div>
 			</div>
+
+			<br>
+			<hr />
 
 			<div id="services" class="section-header">
 				Our Services
@@ -152,6 +155,9 @@
 					</div>
 				</div>
 			</div>
+
+			<br>
+			<hr />
 
 			<div class="section-header">
 				Reviews
@@ -222,6 +228,8 @@
 					</a>
 				</div>
 			</div>
+			<br>
+			<hr />
 
 			<div class="section-header">
 				FAQ'S
@@ -287,6 +295,8 @@
 				</div>
 			</div>
 
+			<br>
+			<hr />
 
 			<div class="card my-5">
 				<div class="card-body">
