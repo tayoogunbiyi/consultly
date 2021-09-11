@@ -15,6 +15,11 @@
     <div class="mt-5">
         <div class="centralised-section">
             <div class="text-center custom-h1 mb-4">Contact</div>
+            <?php if (isset($message)) : ?>
+                <div class="alert alert-success">
+                    <?= $message ?>
+                </div>
+            <?php endif; ?>
             <div class="text-center custom-h2 mb-4">The help you need is just a click away...</div>
             <form method="post" action="<?php echo base_url(); ?>/about" method="post">
                 <div class="form-group my-3">
