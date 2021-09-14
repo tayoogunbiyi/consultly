@@ -19,6 +19,9 @@ class Profile extends BaseController
         $data["company_name"] = $this->session->get('company_name');
         $data['consultation_requests'] = $consultation_request_data;
         $data['consultation_requests_count'] = count($consultation_request_data);
+
+        $query = $this->db->query("SELECT COUNT(id) from consultation_request WHERE users_id=? AND status='completed'", [$this->session->get("user_id")]);
+        $data["completed_count"] = $query->getResultArray()[0]["COUNT(id)"];
         return view("profile", $data);
     }
 }

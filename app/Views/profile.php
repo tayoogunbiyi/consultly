@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-10">
                         <i class="far fa-bell mr-2"></i>
-                        You have three completed consultations pending review. View now
+                        You have <?= $completed_count ?> consultation(s) which have been completed. View below
                     </div>
                     <div class="col-md-2 text-right">
                         <a href="#" class="a-link a-link-nodecoration"><i class="far fa-window-close"></i> close</a>
